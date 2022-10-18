@@ -1,4 +1,4 @@
-function getContentCSS() {
+function getContentCSS () {
     /*img {max-width: 98%;margin-left:auto;margin-right:auto;display: block;}*/
     return `
     <style>
@@ -15,10 +15,10 @@ function getContentCSS() {
         pre{padding: 10px 5px 10px 10px;margin: 15px 0;display: block;line-height: 18px;background: #F0F0F0;border-radius: 6px;font-size: 13px; font-family: 'monaco', 'Consolas', "Liberation Mono", Courier, monospace; word-break: break-all; word-wrap: break-word;overflow-x: auto;}
         pre code {display: block;font-size: inherit;white-space: pre-wrap;color: inherit;}
     </style>
-    `;
+    `
 }
 
-function createHTML(options = {}) {
+function createHTML (options = {}) {
     const {
         backgroundColor = '#FFF',
         color = '#000033',
@@ -39,7 +39,7 @@ function createHTML(options = {}) {
         // When first gaining focus, the cursor moves to the end of the text
         firstFocusEnd = true,
         useContainer = true,
-    } = options;
+    } = options
     //ERROR: HTML height not 100%;
     return `
 <!DOCTYPE html>
@@ -52,7 +52,9 @@ function createHTML(options = {}) {
         * {outline: 0px solid transparent;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-touch-callout: none;box-sizing: border-box;}
         html, body { margin: 0; padding: 0;font-family: Arial, Helvetica, sans-serif; font-size:1em; height: 100%}
         body { overflow-y: hidden; -webkit-overflow-scrolling: touch;background-color: ${backgroundColor};caret-color: ${caretColor};}
-        .content {font-family: Arial, Helvetica, sans-serif;color: ${color}; width: 100%;${!useContainer ? 'height:100%;' : ''}-webkit-overflow-scrolling: touch;padding-left: 0;padding-right: 0;}
+        .content {font-family: Arial, Helvetica, sans-serif;color: ${color}; width: 100%;${
+        !useContainer ? 'height:100%;' : ''
+    }-webkit-overflow-scrolling: touch;padding-left: 0;padding-right: 0;}
         .pell { height: 100%;} .pell-content { outline: 0; overflow-y: auto;padding: 10px;height: 100%;${contentCSSText}}
     </style>
     <style>
@@ -435,7 +437,6 @@ function createHTML(options = {}) {
             content.id = 'content';
             content.contentEditable = true;
             content.spellcheck = false;
-            content.autofocus = true;
             content.enterKeyHint = '${enterKeyHint}';
             content.autocapitalize = '${autoCapitalize}';
             content.autocorrect = ${autoCorrect};
@@ -641,8 +642,8 @@ function createHTML(options = {}) {
 </script>
 </body>
 </html>
-`;
+`
 }
 
-const HTML = createHTML();
-export {HTML, createHTML, getContentCSS};
+const HTML = createHTML()
+export {HTML, createHTML, getContentCSS}
