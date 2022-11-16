@@ -111,9 +111,7 @@ export default class RichToolbar extends Component {
 
     _mount = () => {
         const {editor: {current: editor} = {current: this.props.getEditor?.()}} = this.props;
-        if (!editor) {
-            throw new Error('Toolbar has no editor!');
-        } else {
+        if (editor) {
             editor.registerToolbar((selectedItems) => this.setSelectedItems(selectedItems));
             this.editor = editor;
         }
